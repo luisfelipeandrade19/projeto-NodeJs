@@ -20,11 +20,10 @@ const server = http.createServer(async( req, res) => {
     const { method, url } = req
 
     await json(req, res)
-    
+
     if(method === 'GET' && url === '/users'){
         // Early return
         return res
-        .setHeader('Content-type', 'aplication/json')
         .end(JSON.stringify(users))
     } 
 
@@ -44,8 +43,7 @@ const server = http.createServer(async( req, res) => {
     return res
     .writeHead(404)
     .end('404 Not Found')
-
-    
+  
 })
 
 server.listen(3333)
