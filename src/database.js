@@ -6,7 +6,7 @@ export class Database{
     database = {}
 
     constructor(){
-        fs.readFile(databasePath, 'utf8').then(data =>{
+        fs.readFile(databasePath, 'utf-8').then(data =>{
             this.database = JSON.parse(data)
         })
         .catch(() => {
