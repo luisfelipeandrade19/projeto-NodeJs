@@ -1,6 +1,6 @@
-// { "users": [usurios...] }
+// { "users": [usuarios...] }
 
-export class database{
+export class Database{
     database = {}
 
     select(table)
@@ -18,6 +18,6 @@ export class database{
         } else {
             this.database[table] = [data]
         }
-        return data
+        return data;
     }
 }

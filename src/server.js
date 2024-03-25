@@ -11,19 +11,23 @@
 
 import http from 'node:http'
 import { json } from './middlewares/json.js'
-import { database } from './database.js'
+import { Database } from './database.js'
 
 
-const database = new database()
+const database = new Database()
 
 // Criando server
 const server = http.createServer(async( req, res) => {
     const { method, url } = req
 
-    await json(req, res)
+   
 
+    await json(req, res)
+    
     if(method === 'GET' && url === '/users'){
         // Early return
+        const users = database.select('users')
+
         return res
         .end(JSON.stringify(users))
     } 
